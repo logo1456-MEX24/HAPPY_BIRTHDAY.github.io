@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una sorpresa para ti 💖</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Fondo dinámico: muestra 2 fotos a la vez en pantalla completa */
+        .collage-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Divide la pantalla en 2 columnas iguales */
+            z-index: -1;
+            filter: blur(4px) brightness(0.65);
+            transform: scale(1.05);
+        }
+
+        .collage-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        /* Contenedor principal centrado */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #d63384;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #b02a6b;
+        }
+
+        .error {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Estilo para la carta secreta */
+        .letter-content {
+            display: none;
+            text-align: left;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .letter-content h2 {
+            text-align: center;
+        }
+
+        .letter-content p {
+            line-height: 1.6;
+            color: #333;
+            white-space: pre-line;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fondo de Fotos Rotativo inicializadas con la 1 y la 2 -->
+    <div class="collage-bg">
+        <img id="foto1" src="foto (1).jpeg" alt="Foto 1">
+        <img id="foto2" src="foto (2).jpeg" alt="Foto 2">
+    </div>
+
+    <div class="container">
+        <!-- Paso 1: Validación de Fecha -->
+        <div class="card" id="lock-screen">
+            <h2>FELIZ CUMPLEAÑOS MI AMOR HERMOSA  💌</h2>
+            <p>Para desbloquear tu sorpresa, escribe mi fecha de cumpleaños:</p>
+            <input type="date" id="birthday-input">
+            <button onclick="verificarFecha()">Abrir sorpresa</button>
+            <p class="error" id="error-msg">Mmm, esa no es la fecha. Inténtalo de nuevo ❤️</p>
+        </div>
+
+        <!-- Paso 2: La Carta -->
+        <div class="card letter-content" id="letter-screen">
+            <h2>Para el amor de mi vida ✨</h2>
+            <p id="tu-carta">
+¡Felicidades!
+
+Has llegado a un momento verdaderamente extraordinario, un hito que merece ser celebrado en grande y con todo el corazón. Hoy no es un día cualquiera; es la cúspide de un esfuerzo sostenido, de incontables horas de dedicación, de sueños que un día parecían lejanos y que hoy, finalmente, se materializan ante tus ojos.
+
+---
+
+### Un viaje de perseverancia y pasión
+
+Mirando hacia atrás, es imposible no recordar el camino recorrido. Cada gran logro está tejido con hilos de paciencia, resiliencia y una fe inquebrantable en uno mismo. Ha habido momentos de incertidumbre, días en los que el cansancio pesaba más que las ganas, y retos que parecían insuperables. Sin embargo, cada obstáculo no fue más que una prueba de carácter, un escalón necesario para moldear la fortaleza que hoy posees.
+
+La constancia con la que has trabajado es digna de admiración. No cualquiera tiene la valentía de mantener el rumbo fijo cuando las corrientes soplan en contra. Has demostrado que la disciplina combinada con la pasión es una fuerza imparable. Cada decisión que tomaste, cada sacrificio silencioso y cada madrugada invertida en construir tu futuro han dado frutos de la manera más hermosa posible.
+
+---
+
+### El valor del presente
+
+Este momento es tuyo, absolutamente tuyo. Detente un instante a respirar profundamente y a observar todo lo que te rodea. Permítete sentir el orgullo genuino de saber que lo lograste. No dejes que la prisa del día a día opaque la magnitud de este triunfo. Disfruta de los aplausos, de las sonrisas de quienes te quieren, de los abrazos sinceros y de esa paz interior que solo da el deber cumplido.
+
+Las grandes victorias no solo se miden por el resultado final, sino por la persona en la que te has convertido en el proceso. Hoy eres alguien más sabio, más fuerte, más empático y con una visión mucho más amplia del mundo y de tus propias capacidades. Tu historia es un recordatorio vivo de que los sueños, cuando se persiguen con el alma, dejan de ser fantasías para convertirse en realidades tangibles.
+
+---
+
+### Mirando hacia el horizonte
+
+Y lo más emocionante de todo es que esto es apenas el comienzo. Este logro no es un punto final, sino un punto y seguido en el gran libro de tu vida. Se abre ante ti un abanico infinito de nuevas oportunidades, de horizontes por explorar y de metas aún más grandes por conquistar. Que este éxito sea el impulso que encienda una chispa perpetua en tu interior, recordándote que no hay techo para lo que eres capaz de alcanzar cuando te lo propones.
+
+Que nunca te falte la curiosidad para seguir aprendiendo, la valentía para enfrentar nuevos desafíos y la humildad para reconocer tu propio valor. Sigue brillando con esa luz tan única que te caracteriza, inspirando a quienes te rodean a creer en sus propios sueños.
+
+---
+
+### Un abrazo desde el corazón
+
+Una vez más, **¡muchísimas felicidades!** Disfruta este día al máximo, celébrate con la intensidad que te mereces y guarda este momento en lo más profundo de tu memoria para cuando necesites recordar de lo que eres capaz.
+
+Con todo mi cariño, admiración y los mejores deseos para tu futuro,
+
+*Tu cómplice en este gran viaje.*
+Con todo mi amor,
+Tu novio.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Lista con tus 19 fotos (ajusta la extensión si son .png o .jpeg)
+        const listaFotos = [
+            "foto (1).jpeg",
+            "foto (2).jpeg",
+            "foto (3).jpeg",
+            "foto (4).jpeg",
+            "foto (5).jpeg",
+            "foto (6).jpeg",
+            "foto (7).jpeg",
+            "foto (8).jpeg",
+            "foto (9).jpeg",
+            "foto (10).jpeg",
+            "foto (11).jpeg",
+            "foto (12).jpeg",
+            "foto (13).jpeg",
+            "foto (14).jpeg",
+            "foto (15).jpeg",
+            "foto (16).jpeg",
+            "foto (17).jpeg",
+            "foto (18).jpeg",
+            "foto (19).jpeg"
+        ];
+
+        let indexA = 0;
+        let indexB = 1;
+
+        // Cambia las fotos cada 2 segundos (2000 milisegundos)
+        setInterval(() => {
+            indexA = (indexA + 2) % listaFotos.length;
+            indexB = (indexB + 2) % listaFotos.length;
+
+            document.getElementById("foto1").src = listaFotos[indexA];
+            document.getElementById("foto2").src = listaFotos[indexB];
+        }, 2000);
+
+        function verificarFecha() {
+            const fechaIngresada = document.getElementById("birthday-input").value;
+            
+            // CAMBIA AQUÍ SU CUMPLEAÑOS (Formato: AAAA-MM-DD)
+            const fechaCorrecta = "2002-06-14"; 
+
+            if (fechaIngresada === fechaCorrecta) {
+                document.getElementById("lock-screen").style.display = "none";
+                document.getElementById("letter-screen").style.display = "block";
+            } else {
+                document.getElementById("error-msg").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
